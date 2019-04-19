@@ -1,28 +1,38 @@
 <template>
-  <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
-  </div>
+  <el-container id="app">
+    <el-header>
+      <AppHeader/>
+    </el-header>
+    <el-container>
+      <el-aside padding width="200px">
+        <SideBar @change-filter="changeFilter"/>
+      </el-aside>
+      <el-main>
+        <HomePage/>
+      </el-main>
+    </el-container>
+  </el-container>
 </template>
-
+  
+<style src="./assets/main.css"></style>
 <script>
-import HelloWorld from './components/HelloWorld.vue'
+import AppHeader from "./components/AppHeader/AppHeader.vue";
+import HomePage from "./components/HomePage/HomePage.vue";
+import SideBar from "./components/SideBar/SideBar.vue";
+// import HomePage from './components/HomePage/HomePage.vue'
 
 export default {
-  name: 'app',
+  name: "app",
   components: {
-    HelloWorld
+    AppHeader,
+    HomePage,
+    SideBar
+  },
+  methods: {
+    changeFilter() {
+    }
   }
-}
+};
 </script>
 
-<style>
-#app {
-  font-family: 'Avenir', Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
-}
-</style>
+
